@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#hero_container{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #93C5FD;
+    display: flex;
+    flex-direction: column;
+}
+
+#main_head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4.8rem;
+    background-color: #99F6E4;
+    box-shadow: 0px 4px 15px hsl(0, 0%, 0%, 0.50);
+    font-size: 3.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #F59E0B;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-fill-color: #F59E0B;
+}
+
+#addBtn_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7rem;
+}
+
+#addABook{
+    width: 10rem;
+    height: 3.7rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    background-color: #FB923C;
+    box-shadow: 0em 2px 4px black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+#bookShelf{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.3rem;
+    gap: 1rem;
+    scroll-behavior: smooth;
+}
+
+.book{
+    width: 95%;
+    height: 10rem;
+    background-color: #FDCB93;
+    display: grid;
+    grid-template-rows: 2fr 2fr 0.8fr 2fr;
+    border-radius: 14px;
+}
+
+.book:hover{
+        box-shadow: -3px -4px 10px brown;
+        box-shadow: 3px 4px 10px brown;
+}
+
+.bookName, .bookAuthor, .bookPages, .readStatus_container, .readStatus_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookName{
+    border: 1px solid;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    border-radius: 14px 14px 0px 0px;
+}
+
+.bookAuthor{
+    font-size: 1rem;
+}
+
+.readStatus_container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 6fr 1fr 1fr 1fr;
+    /* border: 1px solid; */
+    /* padding-left: 35px; */
+    /* padding-right: 25px; */
+} 
+
+@media (min-width: 900px) {
+    .readStatus_container{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 6fr 1fr 1fr;
+        /* border: 1px solid; */
+        /* padding-left: 35px; */
+        /* padding-right: 25px; */
+    } 
+  }
+
+.readStatus_btn_container{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex: 3;
+    align-items: center;
+    justify-content: flex-end;
+    /* border: 1px solid; */
+}
+
+.delete_book_container{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid; */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.readStatus_btn{
+    width: 5rem;
+    height: 2rem;
+    background-color: aqua;
+    color: black;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-left: 6%;
+    cursor: pointer; 
+}
+
+.readStatus_btn:hover{
+    box-shadow: 0px 4px 4px 0px hsl(0, 0%, 0%, 0.25);
+}
+
+#popUp_container{
+    display: none; /* Display on none because if it was on flex, the popup would be the first thing the user would see on the screen after loading the page */ 
+    position: absolute;
+    width: 100%;
+    height: 800px;
+    background-color: transparent;
+    justify-content: center;
+}
+
+#addABook_container{
+    margin-top: 35%;
+    position: fixed;
+    display: grid;
+    grid-template-rows: 0.5fr 4fr 1fr;
+    width: 85%;
+    height: 60%;
+    padding: 7px;
+    background-color: white;
+}
+
+.popUpNav{
+    border: 1px solid;
+    background-color: #93C5FD;
+    display: grid;
+    grid-template-columns: 5fr 1fr; 
+}
+
+.popupNavleft{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: 'Montserrat';
+}
+
+.popupNavright{
+    border-left: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-form{
+    /* border: 1px solid; */
+    background-color: #FDBA74;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: auto;
+    /* border: 1px solid; */
+    gap: 1rem;
+}
+
+input[type="text"], input[type="number"]{
+    border: 1px solid;
+    height: 2rem;
+    width: 85%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: 'Montserrat';
+    background-color: #D9D9D9;
+    border: 1px solid white;
+    color: black;
+    font-weight: 600;
+}
+
+/* label{
+    display: block;
+    margin: 0 auto;
+} */
+
+
+label[for="read"]{
+    font-size: 1.8rem;
+    font-family: 'Montserrat';
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"]{
+    /* color: black; */
+    display: inline;
+    font-size: 4rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#checkbox-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    display: block;
+}
+
+.popup-submit{
+    border-top: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FDBA74;
+}
+
+#submit_btn{
+    width: 7rem;
+    height: 2rem;
+    border-radius: 5px;
+    background-color: #FCD34D;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.delete_book{
+    width: 2rem;
+    height: 2rem;
+    background-image: url(delete.svg);
+    cursor: pointer;
+}
+
+
+@media (min-width: 900px){
+    #bookShelf{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .book{
+        width: 250px;
+        height: 10rem;
+        background-color: #FDCB93;
+        display: grid;
+        grid-template-rows: 2fr 2fr 0.8fr 2fr;
+        border-radius: 14px;
+    }
+    #popUp_container {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+    }
+
+    #addABook_container {
+        /* margin-top: 35%; */
+        position: fixed;
+        display: grid;
+        grid-template-rows: 0.5fr 4fr 1fr;
+        width: 50%;
+        height: 60%;
+        /* margin-bottom: 90%; */
+        /* padding: 7px; */
+        margin-top: 0;
+        background-color: white;
+    }
+    
+} /* */
