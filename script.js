@@ -55,6 +55,7 @@ popUpSubmit_btn.addEventListener('click', (event) => {
 
 
 function addBook(arr){
+    console.log(bookStorage)
     bookShelf.innerText = '';
     form.reset();
     // console.clear();
@@ -105,6 +106,7 @@ delete_book_container.appendChild(delete_book);
         book.id = arr[i].name + 'x';
         if(arr[i].read === true){
             readStatus_btn.innerText = 'Read';
+            
             readStatus_btn.style.backgroundColor = 'green';
         }
         else{
@@ -155,13 +157,19 @@ hero_container.addEventListener('click', (e) => {
     if (e.target.matches('div.readStatus_btn')){
         let readStatus_btn = e.target;
         if (readStatus_btn.innerText == 'Read'){
-               
+            let element = e.target.parentElement.parentElement.parentElement.id;
+            let elementIndex = bookStorage.map(e => e.name).indexOf(element.slice(0, element.length - 1));
+            bookStorage[elementIndex].read = false;
+            console.log(bookStorage);
             readStatus_btn.innerText = 'Unread';
             readStatus_btn.style.backgroundColor = 'red';
         }
         else{
              let readStatus_btn = e.target;
-            readStatus_btn.innerText = 'Read';
+             let element = e.target.parentElement.parentElement.parentElement.id;
+             let elementIndex = bookStorage.map(e => e.name).indexOf(element.slice(0, element.length - 1));
+             bookStorage[elementIndex].read = true;
+             readStatus_btn.innerText = 'Read';
             readStatus_btn.style.backgroundColor = 'green';
         }
     }
